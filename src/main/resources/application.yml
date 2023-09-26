@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: boilerplate
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  mvc.throw-exception-if-no-handler-found: true
+  web.resources.add-mappings: false
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+---
+spring:
+  config:
+    activate:
+      on-profile: staging
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
+
+---
+spring:
+  config:
+    activate:
+      on-profile: staging
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+    open-in-view: false
