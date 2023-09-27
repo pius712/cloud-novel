@@ -1,13 +1,14 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
-import org.cloudnovel.novel.core.domain.novel.CreateNovelRequest
+import org.cloudnovel.novel.core.domain.novel.NovelCreateRequest
+import org.springframework.lang.NonNull
 
 data class CreateNovelRequestDto(
-        val title:String,
-        val body:String
+        @NonNull val title:String,
+        @NonNull val body:String
 ) {
 
-    fun toRequest():CreateNovelRequest {
-        return CreateNovelRequest(title, body);
+    fun toRequest():NovelCreateRequest {
+        return NovelCreateRequest(title, body);
     }
 }

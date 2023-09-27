@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.domain.novel
 
-data class CreateNovelRequest(
+data class NovelCreateRequest(
         val title:String,
         val body:String,
 ) {
