@@ -11,11 +11,11 @@ import java.lang.RuntimeException
 @Transactional
 class NovelWriter(private val novelRepository: NovelRepository) {
 
-    fun create(createNovelRequest: CreateNovelRequest):Long {
+    fun create(novelCreateRequest: NovelCreateRequest):Long {
         return novelRepository.save(
                 NovelEntity(
-                        createNovelRequest.title,
-                        createNovelRequest.body
+                        novelCreateRequest.title,
+                        novelCreateRequest.body
                 )
         ).id!!
     }
