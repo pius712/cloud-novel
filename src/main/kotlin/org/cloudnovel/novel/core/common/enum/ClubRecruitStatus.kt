@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.common.enum
 
-enum class ClubStatus {
+enum class ClubRecruitStatus {
 
-    INIT, OPEN, CLOSE
+    INIT, OPEN, CLOSE, HIDE
 }

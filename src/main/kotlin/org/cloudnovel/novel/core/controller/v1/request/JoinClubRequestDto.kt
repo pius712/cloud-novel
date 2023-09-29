@@ -6,7 +6,7 @@ data class JoinClubRequestDto(
         val answer: String
 ) {
 
-    fun toRequest: ClubJoinRequest {
+    fun toRequest(): ClubJoinRequest {
         return ClubJoinRequest(answer)
     }
 }

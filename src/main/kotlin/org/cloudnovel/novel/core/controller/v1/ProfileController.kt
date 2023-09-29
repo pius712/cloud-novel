@@ -4,6 +4,8 @@ import org.cloudnovel.novel.core.controller.v1.request.CreateProfileRequestDto
 import org.cloudnovel.novel.core.controller.v1.request.UpdateProfileRequestDto
 import org.cloudnovel.novel.core.domain.profile.Profile
 import org.cloudnovel.novel.core.domain.profile.ProfileService
+import org.cloudnovel.novel.core.support.error.CoreApiException
+import org.cloudnovel.novel.core.support.error.CoreExceptionType
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -22,7 +24,8 @@ class ProfileController(private val profileService: ProfileService) {
     fun getProfile(
             @PathVariable id: Long
     ): Profile {
-        return profileService.getProfileById(id);
+        throw CoreApiException(CoreExceptionType.PROFILE_NOT_FOUND)
+//        return profileService.getProfileById(id);
     }
 
     @GetMapping()

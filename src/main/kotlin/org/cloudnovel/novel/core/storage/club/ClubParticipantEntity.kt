@@ -6,15 +6,10 @@ import jakarta.persistence.Table
 import org.cloudnovel.novel.core.storage.BaseEntity
 
 @Entity
-@Table(name = "club_join_survey")
-class ClubJoinSurveyEntity(
-        @Column
-        val sequence: Long,
-        @Column
-        val question: String,
+@Table(name = "club_participant")
+data class ClubParticipantEntity(
         @Column(name = "ref_club_id")
-        val clubId: Long
-) : BaseEntity() {
-
-
-}
+        val clubId: Long,
+        @Column(name = "ref_profile_id")
+        val profileId: Long
+) : BaseEntity()

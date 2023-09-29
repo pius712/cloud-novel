@@ -1,11 +1,11 @@
-package org.cloudnovel.novel.core.domain.club
+package org.cloudnovel.novel.core.domain.club.survey
 
 import org.cloudnovel.novel.core.storage.club.ClubJoinSurveyEntity
 import org.cloudnovel.novel.core.storage.club.ClubSurveyRepository
 import org.springframework.stereotype.Component
 
 @Component
-class ClubJoinSurveyReader(private val repository: ClubSurveyRepository) {
+class JoinSurveyReader(private val repository: ClubSurveyRepository) {
 
 
     fun readByClub(clubId: Long): List<JoinSurvey> {

@@ -1,4 +1,9 @@
 package org.cloudnovel.novel.core.domain.club
 
-class Club {
+data class Club(
+        val host: ClubHost,
+        val name: String,
+        val description: String,
+//        val participant: ClubParticipant
+) {
 }
