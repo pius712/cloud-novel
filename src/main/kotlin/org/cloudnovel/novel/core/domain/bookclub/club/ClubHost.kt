@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.club
+package org.cloudnovel.novel.core.domain.bookclub.club
 
 data class ClubHost(
         val profileId: Long,

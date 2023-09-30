@@ -1,7 +1,7 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
 import org.cloudnovel.novel.core.common.enum.ClubVisibilityStatus
-import org.cloudnovel.novel.core.domain.club.ClubCreateRequest
+import org.cloudnovel.novel.core.domain.bookclub.club.ClubCreateRequest
 
 data class CreateClubRequestDto(
         val profileId: Long,

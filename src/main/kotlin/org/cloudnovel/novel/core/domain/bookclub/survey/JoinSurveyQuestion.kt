@@ -1,8 +1,9 @@
-package org.cloudnovel.novel.core.domain.club.survey
+package org.cloudnovel.novel.core.domain.bookclub.survey
 
-data class JoinSurvey(
+data class JoinSurveyQuestion(
         val id: Long,
         val clubId: Long,
         val sequence: Long,
         val question: String) {
+
 }

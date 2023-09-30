@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.club
+package org.cloudnovel.novel.core.domain.bookclub.club
 
 import org.cloudnovel.novel.core.common.enum.ClubVisibilityStatus
 

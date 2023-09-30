@@ -5,4 +5,7 @@ enum class ErrorCode {
 
 
     PROFILE_NOT_FOUND_ERROR,
+
+    SURVEY_NOT_FOUND_ERROR,
+    ALREADY_JOINED_ERROR
 }

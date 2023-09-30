@@ -1,6 +1,5 @@
-package org.cloudnovel.novel.core.domain.club
+package org.cloudnovel.novel.core.domain.bookclub.club
 
-import org.cloudnovel.novel.core.domain.club.participant.ClubParticipantReader
 import org.cloudnovel.novel.core.storage.club.ClubEntity
 import org.cloudnovel.novel.core.storage.club.ClubRepository
 import org.cloudnovel.novel.core.storage.profile.ProfileEntity
@@ -9,10 +8,9 @@ import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 
 @Component
-class ClubReader(private val clubRepository: ClubRepository,
-                 private val profileRepository: ProfileRepository,
-                 private val clubParticipantReader: ClubParticipantReader
-
+class ClubReader(
+        private val clubRepository: ClubRepository,
+        private val profileRepository: ProfileRepository,
 ) {
     fun readById(id: Long): Club {
         val foundClub = clubRepository.findByIdOrNull(id) ?: throw RuntimeException();
@@ -28,12 +26,10 @@ class ClubReader(private val clubRepository: ClubRepository,
     }
 
     fun toClub(profileEntity: ProfileEntity, clubEntity: ClubEntity): Club {
-
-
         return Club(
                 ClubHost(profileEntity.id!!, profileEntity.nickname, profileEntity.bio),
                 clubEntity.name,
-                clubEntity.description
+                clubEntity.description,
         )
     }
 }
