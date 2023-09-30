@@ -4,5 +4,5 @@ data class ClubApplication(
         val profileId: Long,
         val nickname: String,
         val bio: String,
-        val answer: List<JoinSurvey>
+//        val answer: List<JoinSurvey>
 )
