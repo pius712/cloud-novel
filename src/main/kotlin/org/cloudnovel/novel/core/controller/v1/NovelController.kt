@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 class NovelController(
         private val novelService: NovelService,
 ) {
-    
+
     @PostMapping()
     fun register(@RequestBody createNovelRequestDto: CreateNovelRequestDto): ApiResponse<Long> {
         return ApiResponse.ok(novelService.register(
@@ -33,4 +33,35 @@ class NovelController(
         return ApiResponse.ok(novelService.append(id, appendRequestDto.toAppendNovelRequest()))
     }
 
+    @PostMapping("{id}/visibility/invisible")
+    fun changeInvisible(
+            @PathVariable id: Long,
+    ): ApiResponse<Long> {
+        val result = novelService.convertToInvisible(id)
+        return ApiResponse.ok(result);
+    }
+
+    @PostMapping("{id}/visibility/visible")
+    fun changeVisible(
+            @PathVariable id: Long,
+    ): ApiResponse<Long> {
+        val result = novelService.convertVisible(id)
+        return ApiResponse.ok(result);
+    }
+
+    @PostMapping("{id}/comment/restrict")
+    fun restrictComment(
+            @PathVariable id: Long,
+    ): ApiResponse<Long> {
+        val result = novelService.restrictComment(id);
+        return ApiResponse.ok(result)
+    }
+
+    @PostMapping("{id}/comment/allow")
+    fun allowComment(
+            @PathVariable id: Long,
+    ): ApiResponse<Long> {
+        val result = novelService.allowComment(id);
+        return ApiResponse.ok(result)
+    }
 }
