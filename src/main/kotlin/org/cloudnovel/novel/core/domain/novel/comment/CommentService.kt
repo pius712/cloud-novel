@@ -1,11 +1,11 @@
-package org.cloudnovel.novel.core.domain.comment
+package org.cloudnovel.novel.core.domain.novel.comment
 
 import org.springframework.stereotype.Service
 
 @Service
 class CommentService(private val commentReader: CommentReader,
                      private val commentWriter: CommentWriter) {
-    
+
     fun getNovelComment(novelId: Long): List<Comment> {
         return commentReader.readByNovel(novelId)
     }

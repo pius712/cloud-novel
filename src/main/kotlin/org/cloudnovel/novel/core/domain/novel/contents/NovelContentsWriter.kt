@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.novel
+package org.cloudnovel.novel.core.domain.novel.contents
 
 import jakarta.transaction.Transactional
 import org.cloudnovel.novel.core.common.enum.CommentRestrictionStatus
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component
 
 @Component
 @Transactional
-class NovelWriter(private val novelRepository: NovelRepository) {
+class NovelContentsWriter(private val novelRepository: NovelRepository) {
 
     fun create(novelCreateRequest: NovelCreateRequest): Long {
         return novelRepository.save(

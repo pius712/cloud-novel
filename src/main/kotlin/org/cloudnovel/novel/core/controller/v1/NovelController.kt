@@ -2,8 +2,10 @@ package org.cloudnovel.novel.core.controller.v1
 
 import org.cloudnovel.novel.core.controller.v1.request.AppendNovelRequestDto
 import org.cloudnovel.novel.core.controller.v1.request.CreateNovelRequestDto
-import org.cloudnovel.novel.core.controller.v1.response.NovelResponseDto
-import org.cloudnovel.novel.core.domain.novel.NovelService
+import org.cloudnovel.novel.core.domain.novel.Novel
+import org.cloudnovel.novel.core.domain.novel.NovelReadService
+import org.cloudnovel.novel.core.domain.novel.contents.NovelContentsReadService
+import org.cloudnovel.novel.core.domain.novel.contents.NovelContentsService
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 
@@ -11,33 +13,35 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/v1/novel")
 class NovelController(
-        private val novelService: NovelService,
+        private val novelContentsService: NovelContentsService,
+        private val novelContentsReadService: NovelContentsReadService,
+        private val novelReadService: NovelReadService
 ) {
 
     @PostMapping()
     fun register(@RequestBody createNovelRequestDto: CreateNovelRequestDto): ApiResponse<Long> {
-        return ApiResponse.ok(novelService.register(
+        return ApiResponse.ok(novelContentsService.register(
                 createNovelRequestDto.toRequest())
         )
     }
 
     @GetMapping("{id}")
-    fun getNovel(@PathVariable id: Long): ApiResponse<NovelResponseDto> {
-        return ApiResponse.ok(NovelResponseDto(novelService.getNovel(id)));
+    fun getNovel(@PathVariable id: Long): ApiResponse<Novel> {
+        return ApiResponse.ok(novelReadService.getNovel(id));
     }
 
     @PostMapping("{id}/append")
     fun append(
             @PathVariable id: Long,
             @RequestBody appendRequestDto: AppendNovelRequestDto): ApiResponse<Long> {
-        return ApiResponse.ok(novelService.append(id, appendRequestDto.toAppendNovelRequest()))
+        return ApiResponse.ok(novelContentsService.append(id, appendRequestDto.toAppendNovelRequest()))
     }
 
     @PostMapping("{id}/visibility/invisible")
     fun changeInvisible(
             @PathVariable id: Long,
     ): ApiResponse<Long> {
-        val result = novelService.convertToInvisible(id)
+        val result = novelContentsService.convertToInvisible(id)
         return ApiResponse.ok(result);
     }
 
@@ -45,7 +49,7 @@ class NovelController(
     fun changeVisible(
             @PathVariable id: Long,
     ): ApiResponse<Long> {
-        val result = novelService.convertVisible(id)
+        val result = novelContentsService.convertVisible(id)
         return ApiResponse.ok(result);
     }
 
@@ -53,7 +57,7 @@ class NovelController(
     fun restrictComment(
             @PathVariable id: Long,
     ): ApiResponse<Long> {
-        val result = novelService.restrictComment(id);
+        val result = novelContentsService.restrictComment(id);
         return ApiResponse.ok(result)
     }
 
@@ -61,7 +65,7 @@ class NovelController(
     fun allowComment(
             @PathVariable id: Long,
     ): ApiResponse<Long> {
-        val result = novelService.allowComment(id);
+        val result = novelContentsService.allowComment(id);
         return ApiResponse.ok(result)
     }
 }

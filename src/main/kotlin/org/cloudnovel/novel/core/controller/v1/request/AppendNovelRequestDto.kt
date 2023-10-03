@@ -1,12 +1,12 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
-import org.cloudnovel.novel.core.domain.novel.AppendNovelRequest
+import org.cloudnovel.novel.core.domain.novel.contents.AppendNovelRequest
 
-data class AppendNovelRequestDto (
-        val body:String
-){
+data class AppendNovelRequestDto(
+        val body: String
+) {
 
-    fun toAppendNovelRequest():AppendNovelRequest {
-       return AppendNovelRequest(body)
+    fun toAppendNovelRequest(): AppendNovelRequest {
+        return AppendNovelRequest(body)
     }
 }

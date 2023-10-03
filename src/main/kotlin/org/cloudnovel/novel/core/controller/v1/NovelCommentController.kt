@@ -1,8 +1,8 @@
 package org.cloudnovel.novel.core.controller.v1
 
 import org.cloudnovel.novel.core.controller.v1.request.CreateCommentRequestDto
-import org.cloudnovel.novel.core.domain.comment.Comment
-import org.cloudnovel.novel.core.domain.comment.CommentService
+import org.cloudnovel.novel.core.domain.novel.comment.Comment
+import org.cloudnovel.novel.core.domain.novel.comment.CommentService
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 

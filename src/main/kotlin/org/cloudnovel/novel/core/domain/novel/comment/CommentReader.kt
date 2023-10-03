@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.comment
+package org.cloudnovel.novel.core.domain.novel.comment
 
 import org.cloudnovel.novel.core.domain.profile.Profile
 import org.cloudnovel.novel.core.domain.profile.ProfileReader
