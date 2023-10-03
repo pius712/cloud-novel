@@ -1,4 +1,7 @@
 package org.cloudnovel.novel.core.domain.likes
 
-class Liker {
+data class Liker(
+        val profileId: Long,
+        val nickname: String,
+) {
 }

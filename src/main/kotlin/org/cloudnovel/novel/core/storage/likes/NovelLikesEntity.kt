@@ -6,8 +6,8 @@ import org.cloudnovel.novel.core.storage.BaseEntity
 
 
 @Entity
-@Table("novel_likes")
+@Table(name = "novel_likes")
 data class NovelLikesEntity(
         val novelId: Long,
-        val profile: Long,
+        val profileId: Long,
 ) : BaseEntity()

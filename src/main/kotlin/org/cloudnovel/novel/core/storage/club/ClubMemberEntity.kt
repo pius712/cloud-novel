@@ -7,7 +7,7 @@ import org.cloudnovel.novel.core.common.enum.ClubParticipantStatus
 import org.cloudnovel.novel.core.storage.BaseEntity
 
 @Entity
-@Table(name = "club_participant")
+@Table(name = "club_member")
 data class ClubMemberEntity(
         @Column(name = "ref_club_id")
         val clubId: Long,

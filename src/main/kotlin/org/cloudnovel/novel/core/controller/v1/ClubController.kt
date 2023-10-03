@@ -42,13 +42,6 @@ class ClubController(
         return ApiResponse.ok()
     }
 
-    @GetMapping("{id}/applicants")
-    fun getApplicants(
-            @PathVariable id: Long,
-
-            ):{
-
-    }
 
     @GetMapping("{id}/join/survey")
     fun getSurveys(@PathVariable id: Long): ApiResponse<List<JoinSurveyQuestion>> {

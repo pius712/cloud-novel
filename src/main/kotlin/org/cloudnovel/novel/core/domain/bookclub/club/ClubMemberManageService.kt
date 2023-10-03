@@ -3,7 +3,7 @@ package org.cloudnovel.novel.core.domain.bookclub.club
 import org.springframework.stereotype.Service
 
 @Service
-class ClubApplyService(
+class ClubMemberManageService(
         private val clubApplicationReader: ClubApplicationReader
 ) {
 

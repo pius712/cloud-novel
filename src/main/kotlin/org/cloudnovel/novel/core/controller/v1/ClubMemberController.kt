@@ -36,7 +36,7 @@ class ClubMemberController(
     ): ApiResponse<Any> {
         clubJoinService.requestJoin(
                 ClubMember(clubId, joinClubRequestDto.profileId),
-                joinClubRequestDto.surveys.map { JoinSurveyAnswer(it.surveyId, it.sequence, it.answer) })
+                joinClubRequestDto.surveys.map { JoinSurveyAnswer(it.surveyId, it.answer) })
 
         return ApiResponse.ok()
     }

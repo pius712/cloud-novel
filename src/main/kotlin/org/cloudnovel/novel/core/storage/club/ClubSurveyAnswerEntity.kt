@@ -5,12 +5,12 @@ import jakarta.persistence.Entity
 import org.cloudnovel.novel.core.storage.BaseEntity
 
 @Entity
-data class SurveyAnswerEntity(
-        @Column(name = "ref_survey_id")
-        val surveyId: Long,
+data class ClubSurveyAnswerEntity(
+        @Column(name = "ref_question_id")
+        val questionId: Long,
 
-        @Column(name = "ref_profile_id")
-        val profileId: Long,
+        @Column(name = "ref_club_member_id")
+        val clubMemberId: Long,
 
         @Column
         val answer: String

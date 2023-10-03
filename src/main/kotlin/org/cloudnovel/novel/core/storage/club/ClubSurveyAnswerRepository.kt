@@ -5,7 +5,8 @@ import org.springframework.stereotype.Repository
 
 
 @Repository
-interface SurveyAnswerRepository : JpaRepository<SurveyAnswerEntity, Long> {
+interface ClubSurveyAnswerRepository : JpaRepository<ClubSurveyAnswerEntity, Long> {
 
-    fun findByAndSurveyIdAndProfileIdIn(surveyId: Long, profileIds: List<Long>): List<SurveyAnswerEntity>
+
+    fun findByClubMemberId(clubMemberId: Long): List<ClubSurveyAnswerEntity>
 }

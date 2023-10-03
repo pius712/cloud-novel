@@ -16,6 +16,10 @@ class ProfileReader(
 
     }
 
+    fun readByIdIn(ids: List<Long>): List<Profile> {
+        return profileRepository.findByIdIn(ids).map { toProfile(it) }
+    }
+
     fun readByUserId(userId: Long): Profile {
         return profileRepository.findByUserId(userId)?.let { toProfile(it) }
                 ?: throw RuntimeException()

@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.*
 class NovelController(
         private val novelService: NovelService,
 ) {
-
-
+    
     @PostMapping()
     fun register(@RequestBody createNovelRequestDto: CreateNovelRequestDto): ApiResponse<Long> {
         return ApiResponse.ok(novelService.register(
