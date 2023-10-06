@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.profile
+package org.cloudnovel.novel.core.domain.profile.profile
 
 import org.springframework.stereotype.Service
 

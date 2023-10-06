@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.profile
+package org.cloudnovel.novel.core.domain.profile.profile
 
 import jakarta.transaction.Transactional
 import org.cloudnovel.novel.core.storage.profile.ProfileEntity

@@ -2,8 +2,8 @@ package org.cloudnovel.novel.core.controller.v1
 
 import org.cloudnovel.novel.core.controller.v1.request.CreateProfileRequestDto
 import org.cloudnovel.novel.core.controller.v1.request.UpdateProfileRequestDto
-import org.cloudnovel.novel.core.domain.profile.Profile
-import org.cloudnovel.novel.core.domain.profile.ProfileService
+import org.cloudnovel.novel.core.domain.profile.profile.Profile
+import org.cloudnovel.novel.core.domain.profile.profile.ProfileService
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 

@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
-import org.cloudnovel.novel.core.domain.profile.ProfileUpdateRequest
+import org.cloudnovel.novel.core.domain.profile.profile.ProfileUpdateRequest
 
 data class UpdateProfileRequestDto(
         val userId: Long,
