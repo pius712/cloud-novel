@@ -4,22 +4,16 @@ import org.springframework.stereotype.Service
 
 @Service
 class ProfileService(
-        private val profileReader: ProfileReader,
+        
         private val profileWriter: ProfileWriter,
+        private val profileValidator: ProfileValidator
 ) {
 
-    fun getProfileById(id: Long): Profile {
-        return profileReader.readById(id)
-    }
-
-    fun getProfileByUserId(userId: Long): Profile {
-        return profileReader.readByUserId(userId)
-    }
-
     fun register(userId: Long, createRequest: ProfileCreateRequest): Long {
+        profileValidator.canMakeProfile(userId);
+
         return profileWriter.write(userId, createRequest)
     }
-
 
     fun update(userId: Long, updateRequest: ProfileUpdateRequest): Profile {
         return profileWriter.update(userId, updateRequest)

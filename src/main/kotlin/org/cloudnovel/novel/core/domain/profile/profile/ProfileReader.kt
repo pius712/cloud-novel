@@ -30,5 +30,8 @@ class ProfileReader(
 
     }
 
+    fun count(userId: Long): Long {
+        return profileRepository.countByUserId(userId)
+    }
 
 }

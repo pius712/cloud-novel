@@ -6,4 +6,6 @@ interface ProfileRepository : JpaRepository<ProfileEntity, Long> {
 
     fun findByUserId(userId: Long): ProfileEntity?
     fun findByIdIn(ids: List<Long>): List<ProfileEntity>
+
+    fun countByUserId(userId: Long): Long
 }
