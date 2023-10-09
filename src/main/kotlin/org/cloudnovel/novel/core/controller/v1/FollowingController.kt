@@ -2,18 +2,23 @@ package org.cloudnovel.novel.core.controller.v1
 
 import org.cloudnovel.novel.core.controller.v1.request.FollowingRequestDto
 import org.cloudnovel.novel.core.controller.v1.request.UnfollowRequestDto
+import org.cloudnovel.novel.core.controller.v1.response.ProfileListResponseDto
+import org.cloudnovel.novel.core.domain.profile.following.FollowingReadService
 import org.cloudnovel.novel.core.domain.profile.following.FollowingService
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/profile/{profileId}/following")
-class FollowingController(private val followingService: FollowingService) {
+class FollowingController(
+        private val followingReadService: FollowingReadService,
+        private val followingService: FollowingService) {
 
 
-    @GetMapping
-    fun getFollowing() {
-
+    @GetMapping("/list")
+    fun getFollowing(@PathVariable profileId: Long): ApiResponse<ProfileListResponseDto> {
+        val result = followingReadService.getFollowing(profileId)
+        return ApiResponse.ok(ProfileListResponseDto.of(result))
     }
 
     @PostMapping("/follow")

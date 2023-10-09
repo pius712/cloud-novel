@@ -14,8 +14,8 @@ class FollowingWriter(
 
 
     fun follow(profileId: Long, targetId: Long) {
-        val hasFollowing = checkFollowing(profileId, targetId)
-        if (!hasFollowing) throw CoreApiException(CoreExceptionType.ALREADY_FOLLOWING)
+        val hasFollowing = isFollowing(profileId, targetId)
+        if (hasFollowing) throw CoreApiException(CoreExceptionType.ALREADY_FOLLOWING)
         followingRepository.save(FollowingEntity(
                 profileId,
                 targetId
@@ -24,16 +24,15 @@ class FollowingWriter(
 
 
     fun unfollow(profileId: Long, targetId: Long) {
-        val hasFollowing = checkFollowing(profileId, targetId)
-        if (!hasFollowing) throw CoreApiException(CoreExceptionType.NOT_FOLLOWING_PROFILE)
+        val hasFollowing = isFollowing(profileId, targetId)
+        if (hasFollowing) throw CoreApiException(CoreExceptionType.NOT_FOLLOWING_PROFILE)
         followingRepository.deleteByProfileIdAndFollowingId(profileId, targetId)
     }
 
 
-    private fun checkFollowing(profileId: Long, targetId: Long): Boolean {
+    private fun isFollowing(profileId: Long, targetId: Long): Boolean {
         val found = followingRepository.findByProfileId(profileId);
-        return found.find { it.followingId == targetId } != null
-
+        val found2 = found.find { it.followingId == targetId }
+        return found2 != null
     }
-
 }

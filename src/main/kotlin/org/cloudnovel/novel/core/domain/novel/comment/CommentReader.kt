@@ -1,7 +1,7 @@
 package org.cloudnovel.novel.core.domain.novel.comment
 
-import org.cloudnovel.novel.core.domain.profile.profile.Profile
-import org.cloudnovel.novel.core.domain.profile.profile.ProfileReader
+import org.cloudnovel.novel.core.domain.profile.profile.UserProfile
+import org.cloudnovel.novel.core.domain.profile.profile.UserProfileReader
 import org.cloudnovel.novel.core.storage.comment.CommentEntity
 import org.cloudnovel.novel.core.storage.comment.CommentRepository
 import org.cloudnovel.novel.core.support.error.CoreApiException
@@ -11,11 +11,11 @@ import org.springframework.stereotype.Component
 @Component
 class CommentReader(
         private val commentRepository: CommentRepository,
-        private val profileReader: ProfileReader) {
+        private val userProfileReader: UserProfileReader) {
 
     fun readByNovel(novelId: Long): List<Comment> {
         val commentEntities = commentRepository.findByNovelId(novelId)
-        val profileMap = profileReader.readAllById(commentEntities.map { it.profileId }).groupBy { it.id }
+        val profileMap = userProfileReader.readAllById(commentEntities.map { it.profileId }).groupBy { it.id }
 
         return commentEntities.map {
             toComment(it, profileMap[it.profileId]?.firstOrNull()
@@ -25,7 +25,7 @@ class CommentReader(
 
     fun readByProfile(profileId: Long): List<Comment> {
         val commentEntities = commentRepository.findByProfileId(profileId);
-        val profileMap = profileReader.readAllById(commentEntities.map { it.profileId }).groupBy { it.id }
+        val profileMap = userProfileReader.readAllById(commentEntities.map { it.profileId }).groupBy { it.id }
 
         return commentEntities.map {
             toComment(it, profileMap[it.profileId]?.firstOrNull()
@@ -33,7 +33,7 @@ class CommentReader(
         }
     }
 
-    fun toComment(commentEntity: CommentEntity, profile: Profile): Comment {
-        return Comment(commentEntity.id!!, profile.nickname, commentEntity.body)
+    fun toComment(commentEntity: CommentEntity, userProfile: UserProfile): Comment {
+        return Comment(commentEntity.id!!, userProfile.nickname, commentEntity.body)
     }
 }

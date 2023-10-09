@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.domain.profile.following
 
-import org.cloudnovel.novel.core.domain.profile.profile.Profile
+import org.cloudnovel.novel.core.domain.profile.profile.UserProfile
 import org.springframework.stereotype.Service
 
 @Service
@@ -11,7 +11,7 @@ class FollowingReadService(private val followingReader: FollowingReader) {
         return followingReader.readFollowingCount(profileId)
     }
 
-    fun getFollowing(profileId: Long): List<Profile> {
+    fun getFollowing(profileId: Long): List<UserProfile> {
         return followingReader.readFollowing(profileId)
     }
 }

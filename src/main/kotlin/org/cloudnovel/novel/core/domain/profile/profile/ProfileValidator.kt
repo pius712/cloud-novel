@@ -5,11 +5,11 @@ import org.cloudnovel.novel.core.support.error.CoreExceptionType
 import org.springframework.stereotype.Component
 
 @Component
-class ProfileValidator(val profileReader: ProfileReader) {
+class ProfileValidator(val userProfileReader: UserProfileReader) {
 
 
     fun canMakeProfile(userId: Long) {
-        val count = profileReader.count(userId);
+        val count = userProfileReader.count(userId);
         if (count >= 3) {
             throw CoreApiException(CoreExceptionType.PROFILED_MAX_COUNT_EXCEED)
         }

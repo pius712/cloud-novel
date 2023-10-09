@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.domain.profile.profile
 
-data class ProfileUpdateRequest(
+data class UserProfileUpdateRequest(
         val bio: String
 ) {
 }

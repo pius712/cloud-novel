@@ -16,6 +16,8 @@ enum class CoreExceptionType(
     ALREADY_FOLLOWING(HttpStatus.OK, ErrorCode.ALREADY_FOLLOWING_ERROR, "이미 팔로잉하고 있습니다."),
     NOT_FOLLOWING_PROFILE(HttpStatus.OK, ErrorCode.NOT_FOLLOWING_PROFILE_ERROR, "팔로잉하고 있지 않습니다."),
 
+    NOT_FOLLOWER_PROFILER(HttpStatus.OK, ErrorCode.NOT_FOLLOWER_PROFILE_ERROR, "팔로워가 아닙니다"),
+
     NOVEL_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.NOVEL_NOT_FOUND_ERROR, "해당 소설을 찾을 수 없습니다."),
 
     SURVEY_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.SURVEY_NOT_FOUND_ERROR, "북클럽을 열기 위해서는 가입 설문이 필요합니다."),

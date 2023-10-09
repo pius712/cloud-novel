@@ -1,13 +1,13 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
-import org.cloudnovel.novel.core.domain.profile.profile.ProfileUpdateRequest
+import org.cloudnovel.novel.core.domain.profile.profile.UserProfileUpdateRequest
 
 data class UpdateProfileRequestDto(
         val userId: Long,
         val bio: String
 ) {
 
-    fun toRequest(): ProfileUpdateRequest {
-        return ProfileUpdateRequest(bio)
+    fun toRequest(): UserProfileUpdateRequest {
+        return UserProfileUpdateRequest(bio)
     }
 }

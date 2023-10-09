@@ -1,23 +1,23 @@
 package org.cloudnovel.novel.core.domain.novel.likes
 
-import org.cloudnovel.novel.core.domain.profile.profile.Profile
-import org.cloudnovel.novel.core.domain.profile.profile.ProfileReader
+import org.cloudnovel.novel.core.domain.profile.profile.UserProfile
+import org.cloudnovel.novel.core.domain.profile.profile.UserProfileReader
 import org.cloudnovel.novel.core.storage.likes.NovelLikesRepository
 import org.springframework.stereotype.Component
 
 @Component
 class NovelLikesReader(private val novelLikesRepository: NovelLikesRepository,
-                       private val profileReader: ProfileReader) {
+                       private val userProfileReader: UserProfileReader) {
 
 
     fun readByNovelId(novelId: Long): List<NovelLiker> {
         val likesEntities = novelLikesRepository.findByNovelId(novelId)
 
-        return profileReader.readAllById(likesEntities.map { it.profileId }).map { toLiker(it) }
+        return userProfileReader.readAllById(likesEntities.map { it.profileId }).map { toLiker(it) }
     }
 
-    fun toLiker(profile: Profile): NovelLiker {
-        return NovelLiker(profile.id, profile.nickname)
+    fun toLiker(userProfile: UserProfile): NovelLiker {
+        return NovelLiker(userProfile.id, userProfile.nickname)
     }
 
 }
