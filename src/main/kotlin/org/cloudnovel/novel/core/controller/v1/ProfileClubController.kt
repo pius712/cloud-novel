@@ -17,27 +17,27 @@ import org.springframework.web.bind.annotation.RestController
 class ProfileClubController(private val clubReadService: ClubReadService,
                             private val clubMemberReadService: ClubMemberReadService) {
 
-    @GetMapping
+    @GetMapping("/host")
     fun getHostClub(@PathVariable profileId: Long): ApiResponse<ProfileHostClubResponseDto> {
         val clubByProfile = clubReadService.getClubByProfile(profileId);
 
-        return ApiResponse.ok(ProfileHostClubResponseDto(clubByProfile))
+        return ApiResponse.ok(ProfileHostClubResponseDto.of(clubByProfile))
     }
 
-    @GetMapping
+    @GetMapping("guest")
     fun getGuestClub(@PathVariable profileId: Long): ApiResponse<ProfileGuestClubResponseDto> {
         val clubs = clubMemberReadService.getClubByProfile(profileId)
 
-        return ApiResponse.ok(ProfileGuestClubResponseDto(clubs))
+        return ApiResponse.ok(ProfileGuestClubResponseDto.of(clubs))
     }
 
-    @GetMapping()
+    @GetMapping("joined")
     fun getJoiningClub(@PathVariable profileId: Long): ApiResponse<ProfileJoiningClubResponseDto> {
         val hostClubs = clubReadService.getClubByProfile(profileId);
 
         val guestClubs = clubMemberReadService.getClubByProfile(profileId)
 
-        return ApiResponse.ok(ProfileJoiningClubResponseDto(hostClubs, guestClubs))
+        return ApiResponse.ok(ProfileJoiningClubResponseDto.of(hostClubs, guestClubs))
     }
 
 

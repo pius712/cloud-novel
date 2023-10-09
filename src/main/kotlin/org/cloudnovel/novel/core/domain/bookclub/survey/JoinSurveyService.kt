@@ -6,8 +6,7 @@ import org.springframework.stereotype.Service
 class JoinSurveyService(
         private val joinSurveyReader: JoinSurveyReader,
         private val joinSurveyWriter: JoinSurveyWriter) {
-
-
+    
     fun getSurveys(clubId: Long): List<JoinSurveyQuestion> {
         return joinSurveyReader.readByClub(clubId)
     }

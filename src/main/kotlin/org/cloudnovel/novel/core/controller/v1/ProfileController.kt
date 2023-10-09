@@ -3,13 +3,16 @@ package org.cloudnovel.novel.core.controller.v1
 import org.cloudnovel.novel.core.controller.v1.request.CreateProfileRequestDto
 import org.cloudnovel.novel.core.controller.v1.request.UpdateProfileRequestDto
 import org.cloudnovel.novel.core.domain.profile.profile.Profile
+import org.cloudnovel.novel.core.domain.profile.profile.ProfileReadService
 import org.cloudnovel.novel.core.domain.profile.profile.ProfileService
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("api/v1/profile")
-class ProfileController(private val profileService: ProfileService) {
+class ProfileController(
+        private val profileReadService: ProfileReadService,
+        private val profileService: ProfileService) {
 
     @PostMapping()
     fun register(
@@ -23,12 +26,12 @@ class ProfileController(private val profileService: ProfileService) {
     fun getProfile(
             @PathVariable id: Long
     ): ApiResponse<Profile> {
-        return ApiResponse.ok(profileService.getProfileById(id));
+        return ApiResponse.ok(profileReadService.getProfileById(id));
     }
 
     @GetMapping()
     fun getProfileByUserId(@RequestParam("userId") userId: Long): ApiResponse<Profile> {
-        return ApiResponse.ok(profileService.getProfileByUserId(userId));
+        return ApiResponse.ok(profileReadService.getProfileByUserId(userId));
     }
 
     @PostMapping("/update")

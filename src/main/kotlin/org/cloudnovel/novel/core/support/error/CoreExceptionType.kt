@@ -9,7 +9,9 @@ enum class CoreExceptionType(
 ) : BaseExceptionType {
 
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.USER_NOT_FOUND_ERROR, "유저를 찾을 수 없습니다."),
-    PROFILE_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.PROFILE_NOT_FOUND_ERROR, "profile 이 없습니다."),
+    PROFILE_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.PROFILE_NOT_FOUND_ERROR, "프로필이 없습니다."),
+
+    PROFILED_MAX_COUNT_EXCEED(HttpStatus.BAD_REQUEST, ErrorCode.PROFILED_MAX_COUNT_EXCEED, "프로필은 3개까지 만들 수 있습니다."),
 
     NOVEL_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.NOVEL_NOT_FOUND_ERROR, "해당 소설을 찾을 수 없습니다."),
 

@@ -6,8 +6,11 @@ data class ProfileJoiningClubResponseDto(
         val hostClubs: List<ClubResponseDto>,
         val guestClubs: List<ClubResponseDto>,
 ) {
-    constructor(hostClubs: List<Club>, guestClubs: List<Club>) : this(
-            hostClubs.map { ClubResponseDto(it) },
-            guestClubs.map { ClubResponseDto(it) }
-    )
+    companion object {
+        fun of(hostClubs: List<Club>, guestClubs: List<Club>): ProfileJoiningClubResponseDto {
+            return ProfileJoiningClubResponseDto(hostClubs.map { ClubResponseDto(it) },
+                    guestClubs.map { ClubResponseDto(it) })
+        }
+    }
+
 }
