@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
-import org.cloudnovel.novel.core.domain.novel.contents.NovelCreateRequest
+import org.cloudnovel.novel.core.domain.novel.novel.NovelCreateRequest
 import org.springframework.lang.NonNull
 
 data class CreateNovelRequestDto(

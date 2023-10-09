@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.likes
+package org.cloudnovel.novel.core.domain.novel.likes
 
 import org.cloudnovel.novel.core.storage.likes.NovelLikesEntity
 import org.cloudnovel.novel.core.storage.likes.NovelLikesRepository

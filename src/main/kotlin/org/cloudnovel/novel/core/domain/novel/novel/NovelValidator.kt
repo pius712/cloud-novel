@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.novel.contents
+package org.cloudnovel.novel.core.domain.novel.novel
 
 import org.springframework.stereotype.Component
 

@@ -1,7 +1,7 @@
 package org.cloudnovel.novel.core.domain.novel.comment
 
-import org.cloudnovel.novel.core.domain.profile.Profile
-import org.cloudnovel.novel.core.domain.profile.ProfileReader
+import org.cloudnovel.novel.core.domain.profile.profile.Profile
+import org.cloudnovel.novel.core.domain.profile.profile.ProfileReader
 import org.cloudnovel.novel.core.storage.comment.CommentEntity
 import org.cloudnovel.novel.core.storage.comment.CommentRepository
 import org.cloudnovel.novel.core.support.error.CoreApiException

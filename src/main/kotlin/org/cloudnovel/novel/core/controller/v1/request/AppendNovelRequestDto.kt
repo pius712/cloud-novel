@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.controller.v1.request
 
-import org.cloudnovel.novel.core.domain.novel.contents.AppendNovelRequest
+import org.cloudnovel.novel.core.domain.novel.novel.AppendNovelRequest
 
 data class AppendNovelRequestDto(
         val body: String

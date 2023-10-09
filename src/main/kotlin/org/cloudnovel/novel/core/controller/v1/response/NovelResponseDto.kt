@@ -1,6 +1,6 @@
 package org.cloudnovel.novel.core.controller.v1.response
 
-import org.cloudnovel.novel.core.domain.novel.contents.NovelContents
+import org.cloudnovel.novel.core.domain.novel.novel.Novel
 
 data class NovelResponseDto(
         val id: Long,
@@ -8,5 +8,5 @@ data class NovelResponseDto(
         val body: String
 ) {
 
-    constructor(novelContents: NovelContents) : this(novelContents.id, novelContents.title, novelContents.body)
+    constructor(novel: Novel) : this(novel.id, novel.title, novel.body)
 }

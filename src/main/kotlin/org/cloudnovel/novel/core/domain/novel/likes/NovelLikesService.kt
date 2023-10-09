@@ -1,4 +1,4 @@
-package org.cloudnovel.novel.core.domain.likes
+package org.cloudnovel.novel.core.domain.novel.likes
 
 import org.springframework.stereotype.Service
 
@@ -11,7 +11,7 @@ class NovelLikesService(private val novelLikesWriter: NovelLikesWriter,
         return novelLikesWriter.write(novelId, profileId)
     }
 
-    fun getLiker(novelId: Long): List<Liker> {
+    fun getLiker(novelId: Long): List<NovelLiker> {
         return novelLikesReader.readByNovelId(novelId)
     }
 }

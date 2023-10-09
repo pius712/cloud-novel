@@ -29,6 +29,7 @@ logging:
     org.hibernate.SQL: debug
 
 ---
+
 spring:
   config:
     activate:
