@@ -16,8 +16,8 @@ class ProfileReader(
 
     }
 
-    fun readByIdIn(ids: List<Long>): List<Profile> {
-        return profileRepository.findByIdIn(ids).map { toProfile(it) }
+    fun readAllById(ids: List<Long>): List<Profile> {
+        return profileRepository.findAllById(ids).map { toProfile(it) }
     }
 
     fun readByUserId(userId: Long): Profile {

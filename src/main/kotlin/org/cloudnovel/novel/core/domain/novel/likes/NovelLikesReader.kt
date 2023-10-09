@@ -13,7 +13,7 @@ class NovelLikesReader(private val novelLikesRepository: NovelLikesRepository,
     fun readByNovelId(novelId: Long): List<NovelLiker> {
         val likesEntities = novelLikesRepository.findByNovelId(novelId)
 
-        return profileReader.readByIdIn(likesEntities.map { it.profileId }).map { toLiker(it) }
+        return profileReader.readAllById(likesEntities.map { it.profileId }).map { toLiker(it) }
     }
 
     fun toLiker(profile: Profile): NovelLiker {

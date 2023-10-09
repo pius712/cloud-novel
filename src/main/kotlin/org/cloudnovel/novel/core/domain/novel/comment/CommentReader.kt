@@ -15,7 +15,7 @@ class CommentReader(
 
     fun readByNovel(novelId: Long): List<Comment> {
         val commentEntities = commentRepository.findByNovelId(novelId)
-        val profileMap = profileReader.readByIdIn(commentEntities.map { it.profileId }).groupBy { it.id }
+        val profileMap = profileReader.readAllById(commentEntities.map { it.profileId }).groupBy { it.id }
 
         return commentEntities.map {
             toComment(it, profileMap[it.profileId]?.firstOrNull()
@@ -25,7 +25,7 @@ class CommentReader(
 
     fun readByProfile(profileId: Long): List<Comment> {
         val commentEntities = commentRepository.findByProfileId(profileId);
-        val profileMap = profileReader.readByIdIn(commentEntities.map { it.profileId }).groupBy { it.id }
+        val profileMap = profileReader.readAllById(commentEntities.map { it.profileId }).groupBy { it.id }
 
         return commentEntities.map {
             toComment(it, profileMap[it.profileId]?.firstOrNull()
