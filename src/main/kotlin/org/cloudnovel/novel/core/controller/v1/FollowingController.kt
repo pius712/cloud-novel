@@ -3,21 +3,21 @@ package org.cloudnovel.novel.core.controller.v1
 import org.cloudnovel.novel.core.controller.v1.request.FollowingRequestDto
 import org.cloudnovel.novel.core.controller.v1.request.UnfollowRequestDto
 import org.cloudnovel.novel.core.controller.v1.response.ProfileListResponseDto
-import org.cloudnovel.novel.core.domain.profile.following.FollowingReadService
-import org.cloudnovel.novel.core.domain.profile.following.FollowingService
+import org.cloudnovel.novel.core.domain.profile.follow.FollowReadService
+import org.cloudnovel.novel.core.domain.profile.follow.FollowService
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/profile/{profileId}/following")
 class FollowingController(
-        private val followingReadService: FollowingReadService,
-        private val followingService: FollowingService) {
+        private val followReadService: FollowReadService,
+        private val followService: FollowService) {
 
 
     @GetMapping("/list")
     fun getFollowing(@PathVariable profileId: Long): ApiResponse<ProfileListResponseDto> {
-        val result = followingReadService.getFollowing(profileId)
+        val result = followReadService.getFollowing(profileId)
         return ApiResponse.ok(ProfileListResponseDto.of(result))
     }
 
@@ -26,7 +26,7 @@ class FollowingController(
             @PathVariable profileId: Long,
             @RequestBody followingRequestDto: FollowingRequestDto
     ): ApiResponse<Any> {
-        followingService.follow(profileId, followingRequestDto.profileId)
+        followService.follow(profileId, followingRequestDto.profileId)
         return ApiResponse.ok()
     }
 
@@ -36,7 +36,7 @@ class FollowingController(
             @PathVariable profileId: Long,
             @RequestBody unfollowingRequestDto: UnfollowRequestDto
     ): ApiResponse<Any> {
-        followingService.follow(profileId, unfollowingRequestDto.profileId)
+        followService.follow(profileId, unfollowingRequestDto.profileId)
         return ApiResponse.ok()
     }
 }
