@@ -12,6 +12,7 @@ enum class CoreExceptionType(
     PROFILE_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.PROFILE_NOT_FOUND_ERROR, "프로필이 없습니다."),
     PROFILED_MAX_COUNT_EXCEED(HttpStatus.BAD_REQUEST, ErrorCode.PROFILED_MAX_COUNT_EXCEED, "프로필은 3개까지 만들 수 있습니다."),
 
+    INTEREST_NOT_FOUND(HttpStatus.NOT_FOUND, ErrorCode.INTEREST_NOT_FOUND_ERROR, "해당 관심사 카테고리가 없습니다.")
 
     ALREADY_FOLLOWING(HttpStatus.OK, ErrorCode.ALREADY_FOLLOWING_ERROR, "이미 팔로잉하고 있습니다."),
     NOT_FOLLOWING_PROFILE(HttpStatus.OK, ErrorCode.NOT_FOLLOWING_PROFILE_ERROR, "팔로잉하고 있지 않습니다."),
