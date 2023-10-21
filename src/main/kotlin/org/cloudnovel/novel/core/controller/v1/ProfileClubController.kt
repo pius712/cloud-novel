@@ -24,14 +24,14 @@ class ProfileClubController(private val clubReadService: ClubReadService,
         return ApiResponse.ok(ProfileHostClubResponseDto.of(clubByProfile))
     }
 
-    @GetMapping("guest")
+    @GetMapping("/guest")
     fun getGuestClub(@PathVariable profileId: Long): ApiResponse<ProfileGuestClubResponseDto> {
         val clubs = clubMemberReadService.getClubByProfile(profileId)
 
         return ApiResponse.ok(ProfileGuestClubResponseDto.of(clubs))
     }
 
-    @GetMapping("joined")
+    @GetMapping("/joined")
     fun getJoiningClub(@PathVariable profileId: Long): ApiResponse<ProfileJoiningClubResponseDto> {
         val hostClubs = clubReadService.getClubByProfile(profileId);
 

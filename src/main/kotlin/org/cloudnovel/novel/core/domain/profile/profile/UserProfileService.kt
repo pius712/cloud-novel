@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserProfileService(
-
         private val userProfileWriter: UserProfileWriter,
         private val profileValidator: ProfileValidator
 ) {

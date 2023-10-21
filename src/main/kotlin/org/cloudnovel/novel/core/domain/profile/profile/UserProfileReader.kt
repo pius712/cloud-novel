@@ -2,6 +2,8 @@ package org.cloudnovel.novel.core.domain.profile.profile
 
 import org.cloudnovel.novel.core.storage.profile.ProfileEntity
 import org.cloudnovel.novel.core.storage.profile.ProfileRepository
+import org.cloudnovel.novel.core.support.error.CoreApiException
+import org.cloudnovel.novel.core.support.error.CoreExceptionType
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Component
 
@@ -12,7 +14,7 @@ class UserProfileReader(
 
     fun readById(id: Long): UserProfile {
         return profileRepository.findByIdOrNull(id)?.let { toProfile(it) }
-                ?: throw RuntimeException()
+                ?: throw CoreApiException(CoreExceptionType.PROFILE_NOT_FOUND)
 
     }
 
@@ -22,7 +24,7 @@ class UserProfileReader(
 
     fun readByUserId(userId: Long): UserProfile {
         return profileRepository.findByUserId(userId)?.let { toProfile(it) }
-                ?: throw RuntimeException()
+                ?: throw CoreApiException(CoreExceptionType.PROFILE_NOT_FOUND)
     }
 
     fun toProfile(entity: ProfileEntity): UserProfile {

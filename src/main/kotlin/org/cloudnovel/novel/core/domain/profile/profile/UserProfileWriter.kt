@@ -11,10 +11,12 @@ import org.springframework.stereotype.Component
 
 @Component
 @Transactional
-class UserProfileWriter(private val profileRepository: ProfileRepository,
-                        private val userRepository: UserRepository) {
+class UserProfileWriter(
+
+        private val profileRepository: ProfileRepository,
+        private val userRepository: UserRepository) {
     fun write(userId: Long, createRequest: UserProfileCreateRequest): Long {
-        userRepository.findByIdOrNull(userId) ?: throw CoreApiException(CoreExceptionType.PROFILE_NOT_FOUND);
+        userRepository.findByIdOrNull(userId) ?: throw CoreApiException(CoreExceptionType.USER_NOT_FOUND);
 
         return profileRepository.save(ProfileEntity(createRequest.nickname, createRequest.bio,
                 userId)).id!!
