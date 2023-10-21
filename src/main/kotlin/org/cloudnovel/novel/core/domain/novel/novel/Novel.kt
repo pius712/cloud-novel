@@ -4,4 +4,5 @@ data class Novel(
         val id: Long,
         val title: String,
         val body: String,
+        val lastModifierId: Long,
 )

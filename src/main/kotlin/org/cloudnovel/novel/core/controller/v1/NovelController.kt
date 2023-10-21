@@ -6,6 +6,7 @@ import org.cloudnovel.novel.core.controller.v1.response.NovelWithCommentResponse
 import org.cloudnovel.novel.core.domain.novel.comment.CommentService
 import org.cloudnovel.novel.core.domain.novel.novel.NovelReadService
 import org.cloudnovel.novel.core.domain.novel.novel.NovelService
+import org.cloudnovel.novel.core.domain.serviceUser.ServiceUser
 import org.cloudnovel.novel.core.support.response.ApiResponse
 import org.springframework.web.bind.annotation.*
 
@@ -19,8 +20,11 @@ class NovelController(
 ) {
 
     @PostMapping()
-    fun register(@RequestBody createNovelRequestDto: CreateNovelRequestDto): ApiResponse<Long> {
+    fun register(
+            serviceUser: ServiceUser,
+            @RequestBody createNovelRequestDto: CreateNovelRequestDto): ApiResponse<Long> {
         return ApiResponse.ok(novelService.register(
+                serviceUser.profileId,
                 createNovelRequestDto.toRequest())
         )
     }

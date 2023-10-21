@@ -14,11 +14,12 @@ import org.springframework.stereotype.Component
 @Transactional
 class NovelWriter(private val novelRepository: NovelRepository) {
 
-    fun create(novelCreateRequest: NovelCreateRequest): Long {
+    fun create(profileId: Long, novelCreateRequest: NovelCreateRequest): Long {
         return novelRepository.save(
                 NovelEntity(
                         novelCreateRequest.title,
                         novelCreateRequest.body,
+                        profileId,
                         CommentRestrictionStatus.ALLOWED,
                         NovelVisibilityStatus.VISIBLE,
                 )

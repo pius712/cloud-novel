@@ -12,8 +12,8 @@ class NovelService(
         private val novelValidator: NovelValidator
 ) {
 
-    fun register(novelCreateRequest: NovelCreateRequest): Long {
-        val id = novelWriter.create(novelCreateRequest)
+    fun register(profileId: Long, novelCreateRequest: NovelCreateRequest): Long {
+        val id = novelWriter.create(profileId, novelCreateRequest)
         println(id);
         return id;
     }

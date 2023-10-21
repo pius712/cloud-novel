@@ -17,6 +17,6 @@ class NovelReader(
     }
 
     private fun toNovel(novelEntity: NovelEntity): Novel {
-        return Novel(novelEntity.id!!, novelEntity.title, novelEntity.contents)
+        return Novel(novelEntity.id!!, novelEntity.title, novelEntity.contents, novelEntity.lastModifierId)
     }
 }
