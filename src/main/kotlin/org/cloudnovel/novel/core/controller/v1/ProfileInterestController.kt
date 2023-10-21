@@ -22,7 +22,7 @@ class ProfileInterestController(private val profileInterestService: ProfileInter
     @GetMapping("/list")
     fun getInterest(@PathVariable profileId: Long): ApiResponse<InterestListResponseDto> {
         val interests = profileInterestService.getInterestByProfile(profileId)
-        return ApiResponse.ok(InterestListResponseDto(interests))
+        return ApiResponse.ok(InterestListResponseDto.of(interests))
     }
 
 }

@@ -1,6 +1,11 @@
 package org.cloudnovel.novel.core.support.error
 
 enum class ErrorCode {
+    // SERVICE API
+    NOT_FOUND_USER_ID,
+    NOT_FOUND_PROFILE_ID,
+
+    // CORE API
     NO_HANDLER_FOUND_ERROR,
 
 
@@ -9,7 +14,7 @@ enum class ErrorCode {
     PROFILED_MAX_COUNT_EXCEED,
 
     INTEREST_NOT_FOUND_ERROR,
-    
+
     NOVEL_NOT_FOUND_ERROR,
 
     ALREADY_FOLLOWING_ERROR,

@@ -6,5 +6,9 @@ data class InterestListResponseDto(
         val interests: List<InterestResponseDto>
 ) {
 
-    constructor(interests: List<Interest>) : this(interests.map(::InterestResponseDto))
+    companion object {
+        fun of(interests: List<Interest>): InterestListResponseDto {
+            return InterestListResponseDto(interests.map(::InterestResponseDto))
+        }
+    }
 }
