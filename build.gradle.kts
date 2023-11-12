@@ -8,6 +8,13 @@ plugins {
     kotlin("plugin.jpa") version "1.8.22"
 }
 
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.Embeddable")
+    annotation("jakarta.persistence.MappedSuperclass")
+}
+
+
 group = "org.cloud-novel"
 version = "0.0.1-SNAPSHOT"
 
